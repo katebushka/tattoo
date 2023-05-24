@@ -1,0 +1,74 @@
+.header
+  font-size: 14px
+  text-transform: uppercase
+  width: $full
+  margin: 0 auto
+  padding: 20px 0
+  @include breakpoint(large)
+    font-size: 16px
+  @include breakpoint(wide)
+    font-size: 20px
+  &__container
+    display: none
+    @include breakpoint(large)   
+      display: flex
+      align-items: center
+      justify-content: space-between
+      li 
+        display: inline-block
+      a 
+        position: relative
+        display: block
+        cursor: pointer
+      a:before, a:after 
+        content: ''
+        position: absolute
+        width: 0%
+        height: 1px
+        top: 50%
+        margin-top: -0.5px
+        background: #fff
+      a:before 
+        left: -2.5px
+      a:after 
+        right: 2.5px
+        background: #fff
+        transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1)
+      a:hover:before 
+        background: #fff
+        width: 100%
+        transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1)
+      a:hover:after 
+        background: transparent
+        width: 100%
+        transition: 0s
+    &--mobile
+      width: $full
+      position: absolute
+      text-align: center
+      display: block
+      left: 0
+      li
+        padding-bottom: 10px
+      .hide
+        display: none
+
+  &__mobile
+    display: block
+    @include breakpoint(large)
+      display: none
+
+  &__logo
+    font-size: 30px
+    letter-spacing: 0.5rem
+    font-family: $font-stack
+    span
+      color: red
+    @include breakpoint(large)
+      font-size: 50px
+      letter-spacing: $spacing
+
+.burger
+  border: none
+  padding: 0
+  background: none

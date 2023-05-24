@@ -1,0 +1,22 @@
+@mixin breakpoint($name)
+  @if not map-has-key($breakpoints, $name)
+    @warn "Invalid breakpoint `#{$name}`."
+  @else
+    @media (min-width: map-get($breakpoints, $name))
+      @content
+
+.container_all
+  margin: 0 auto
+  max-width: calc($full - $container-padding)
+  @include breakpoint(small)
+    max-width: calc(480px - $container-padding)
+    margin: 0 auto
+  @include breakpoint(medium)
+    max-width: calc(720px - $container-padding * 2)
+    margin: 0 auto
+  @include breakpoint(large)
+    max-width: calc(960px - $container-padding * 2)
+    margin: 0 auto
+  @include breakpoint(wide)
+    max-width: calc(1200px - $container-padding * 2)
+    margin: 0 auto

@@ -1,0 +1,29 @@
+.btn
+  padding: 15px 40px
+  border: none
+  text-transform: uppercase
+  font-weight: bold
+  letter-spacing: 3px
+  cursor: pointer
+  &__main
+    position: relative
+    background: none
+    color: $primary-color
+    &:after, &:before
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      bottom: 0
+      right: 0
+      border: 2px solid $primary-color
+      transition: transform .2s 
+    &:after
+      transform: translate(3px, 3px)	
+    &:before
+      transform: translate(-3px, -3px)
+    &:hover
+      &:after, &:before
+        transform: translate(0)
+    &:active
+      top: 2px
